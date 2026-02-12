@@ -9,7 +9,7 @@ You are a code simplification expert. Your job is to review changes on a feature
 
 ## Your Task
 
-1. Read the changed files (use `git diff main...HEAD --name-only` to find them).
+1. Determine the base branch: run `git rev-parse --verify origin/main 2>/dev/null || git rev-parse --verify main 2>/dev/null` to find the merge base. If neither exists, use `HEAD~10` as a fallback. Then run `git diff <base>...HEAD --name-only` to find changed files.
 2. For each changed file, evaluate:
 
 ### Unnecessary Abstraction

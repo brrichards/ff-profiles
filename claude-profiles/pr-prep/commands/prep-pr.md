@@ -8,8 +8,8 @@ You are executing the PR preparation pipeline. Follow the `pr-checklist` skill t
 
 - Current branch: !`git branch --show-current`
 - Uncommitted changes: !`git status --short`
-- Commits ahead of main: !`git log main..HEAD --oneline`
-- Changed files: !`git diff main...HEAD --name-only`
+- Commits ahead of base: !`git log $(git rev-parse --verify origin/main 2>/dev/null || git rev-parse --verify main 2>/dev/null || echo HEAD~10)..HEAD --oneline 2>/dev/null || echo "(no base branch found — run git fetch first)"`
+- Changed files: !`git diff $(git rev-parse --verify origin/main 2>/dev/null || git rev-parse --verify main 2>/dev/null || echo HEAD~10)...HEAD --name-only 2>/dev/null || echo "(no base branch found — run git fetch first)"`
 
 ## Instructions
 
