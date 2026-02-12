@@ -9,21 +9,21 @@ Locate the `ff-profiles/` directory relative to the current working directory. I
 Parse the user's arguments after `/profiles`:
 
 **/profiles** or **/profiles list**
-Run: `bash ./ff-profiles/scripts/swap-profile.sh list --repo-root ./ff-profiles`
+Run: `node ./ff-profiles/dist/cli.js list --repo-root ./ff-profiles`
 Show only the script output.
 
 **/profiles swap <name>**
-Run: `bash ./ff-profiles/scripts/swap-profile.sh swap <name> --repo-root ./ff-profiles --target .`
+Run: `node ./ff-profiles/dist/cli.js swap <name> --repo-root ./ff-profiles --target .`
 Where `.` is the current working directory (the project root).
 Show only the script output. After swapping, remind the user to restart their Claude Code session for changes to take effect.
 
 **/profiles save <name>** with optional **--description "..."**
-Run: `bash ./ff-profiles/scripts/swap-profile.sh save <name> --repo-root ./ff-profiles --target . --force` plus `--description "..."` if the user provided one.
+Run: `node ./ff-profiles/dist/cli.js save <name> --repo-root ./ff-profiles --target . --force` plus `--description "..."` if the user provided one.
 The `--force` flag is always passed because Claude will confirm with the user before running the command if an overwrite is needed.
 Show only the script output.
 
 **/profiles help**
-Run: `bash ./ff-profiles/scripts/swap-profile.sh help`
+Run: `node ./ff-profiles/dist/cli.js help`
 Show only the script output.
 
 Do not add extra commentary beyond the script output (except the restart reminder on swap).
