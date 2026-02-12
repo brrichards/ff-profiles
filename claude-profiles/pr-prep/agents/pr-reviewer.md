@@ -9,8 +9,9 @@ You are a code reviewer for the FluidFramework project. You have been given a br
 
 ## Your Task
 
-1. Run `git diff main...HEAD` to see all changes on this branch.
-2. Run `git diff` and `git diff --cached` to see any uncommitted changes.
+1. Determine the base branch: run `git rev-parse --verify origin/main 2>/dev/null || git rev-parse --verify main 2>/dev/null` to find the merge base. If neither exists, use `HEAD~10` as a fallback.
+2. Run `git diff <base>...HEAD` to see all changes on this branch.
+3. Run `git diff` and `git diff --cached` to see any uncommitted changes.
 3. Review every changed file for the following:
 
 ### Coding Standards
