@@ -47,6 +47,7 @@ bash ./ff-profiles/scripts/swap-profile.sh swap minimal
 | Profile | Description |
 |---------|-------------|
 | `developer` | Full-featured FluidFramework development profile with coding standards, agents, and skills. |
+| `pr-prep` | PR preparation profile — automated code review, simplification, validation, and push. |
 | `minimal` | Bare-bones profile with no behavioral modifications. |
 
 ## Adding a New Profile
@@ -89,4 +90,5 @@ Each profile is a complete `.claude/` directory snapshot. When you swap to a pro
 ```bash
 bash tests/test-swap.sh
 bash tests/test-setup.sh
+bash tests/test-pr-prep.sh
 ```
