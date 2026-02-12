@@ -1,6 +1,6 @@
 | name | description |
 |------|-------------|
-| profiles | Manage Claude profiles — list, swap, or get help |
+| profiles | Manage Claude profiles — list, swap, save, or get help |
 
 You are managing Claude Code profiles. Profiles control what instructions, agents, skills, commands, hooks, and MCP servers are active.
 
@@ -16,6 +16,11 @@ Show only the script output.
 Run: `bash ./ff-profiles/scripts/swap-profile.sh swap <name> --repo-root ./ff-profiles --target .`
 Where `.` is the current working directory (the project root).
 Show only the script output. After swapping, remind the user to restart their Claude Code session for changes to take effect.
+
+**/profiles save <name>** with optional **--description "..."**
+Run: `bash ./ff-profiles/scripts/swap-profile.sh save <name> --repo-root ./ff-profiles --target . --force` plus `--description "..."` if the user provided one.
+The `--force` flag is always passed because Claude will confirm with the user before running the command if an overwrite is needed.
+Show only the script output.
 
 **/profiles help**
 Run: `bash ./ff-profiles/scripts/swap-profile.sh help`

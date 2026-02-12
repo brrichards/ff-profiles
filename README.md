@@ -42,6 +42,24 @@ bash ./ff-profiles/scripts/swap-profile.sh list
 bash ./ff-profiles/scripts/swap-profile.sh swap minimal
 ```
 
+## Saving Custom Profiles
+
+Save your current `.claude/` configuration as a reusable custom profile:
+
+```
+/profiles save my-setup
+/profiles save my-setup --description "My custom development config"
+```
+
+Or use the script directly:
+
+```bash
+bash ./ff-profiles/scripts/swap-profile.sh save my-setup --target .
+bash ./ff-profiles/scripts/swap-profile.sh save my-setup --description "My config" --target .
+```
+
+Custom profiles are stored in `custom-profiles/` (gitignored) and are safe from repo updates. They appear in `/profiles list` with a `[custom]` tag and can be swapped to just like built-in profiles.
+
 ## Available Profiles
 
 | Profile | Description |
