@@ -75,6 +75,6 @@ fi
 
 # ── Step 3: Apply default profile ──
 
-bash "$FF_PROFILES_DIR/scripts/swap-profile.sh" swap "$DEFAULT_PROFILE" \
+node "$FF_PROFILES_DIR/dist/cli.js" swap "$DEFAULT_PROFILE" \
 	--repo-root "$FF_PROFILES_DIR" \
 	--target "$TARGET"

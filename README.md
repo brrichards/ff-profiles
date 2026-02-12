@@ -2,6 +2,10 @@
 
 Self-contained Claude Code profiles for FluidFramework. Swap your entire `.claude/` configuration with a single command.
 
+## Prerequisites
+
+- **Node.js 18+** (for the TypeScript CLI)
+
 ## Quick Start
 
 ### Codespace / Fresh Setup
@@ -35,11 +39,11 @@ Once set up, use the `/profiles` slash command inside Claude Code:
 /profiles swap developer    # Switch back
 ```
 
-Or use the script directly:
+Or use the CLI directly:
 
 ```bash
-bash ./ff-profiles/scripts/swap-profile.sh list
-bash ./ff-profiles/scripts/swap-profile.sh swap minimal
+node ./ff-profiles/dist/cli.js list
+node ./ff-profiles/dist/cli.js swap minimal
 ```
 
 ## Saving Custom Profiles
@@ -51,11 +55,11 @@ Save your current `.claude/` configuration as a reusable custom profile:
 /profiles save my-setup --description "My custom development config"
 ```
 
-Or use the script directly:
+Or use the CLI directly:
 
 ```bash
-bash ./ff-profiles/scripts/swap-profile.sh save my-setup --target .
-bash ./ff-profiles/scripts/swap-profile.sh save my-setup --description "My config" --target .
+node ./ff-profiles/dist/cli.js save my-setup --target .
+node ./ff-profiles/dist/cli.js save my-setup --description "My config" --target .
 ```
 
 Custom profiles are stored in `custom-profiles/` (gitignored) and are safe from repo updates. They appear in `/profiles list` with a `[custom]` tag and can be swapped to just like built-in profiles.
@@ -103,10 +107,16 @@ Each profile is a complete `.claude/` directory snapshot. When you swap to a pro
 | `commands/*.md` | Custom slash commands |
 | `skills/*/SKILL.md` | Custom skills |
 
-## Running Tests
+## Development
+
+For contributors modifying the CLI itself:
 
 ```bash
-bash tests/test-swap.sh
-bash tests/test-setup.sh
-bash tests/test-pr-prep.sh
+cd ff-profiles
+npm install        # install dev dependencies
+npm run build      # rebuild dist/cli.js
+npm test           # run tests (64 tests)
+npm run typecheck  # type-check sources
 ```
+
+`dist/cli.js` is committed to the repo so consumers never need to run `npm install`.
